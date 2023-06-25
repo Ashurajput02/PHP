@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let h1=document.createElement('h1');
+        let text=document.createTextNode("VEG MENU");
+        h1.appendChild(text);
+        document.body.appendChild(h1);
+        console.log(h1.textContent);
+        h1.className="menu";
+
+        let ul=document.createElement('ul');
+        let li1=document.createElement('li');
+        li1.textContent="ashu";
+        document.body.appendChild(ul);
+        ul.appendChild(li1);
+
+        let li2=document.createElement('li');
+        let text2=document.createTextNode("rajput");
+        li2.appendChild(text2);
+        ul.appendChild(li2);
+
+
+        li2.insertAdjacentHTML("beforebegin","<li>sneha</li>");
+
+        ul.className="list";
+        let pos=ul.firstElementChild.nextElementSibling;
+        console.log(pos.textContent);
+        
+
+   
+    </script>
+</body>
+</html>

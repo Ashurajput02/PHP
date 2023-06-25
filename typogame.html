@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Word Game</title>
+</head>
+<body>
+  <h1>Word Game</h1>
+  <p>Enter the word within the given time:</p>
+  <div id="wordContainer"></div>
+  <input type="text" id="wordInput">
+  <button id="startButton">Start Game</button>
+  <p id="resultMessage"></p>
+
+  <script>
+    window.addEventListener('keydown',function(event){
+        if (event.key=='k')
+        break;
+    
+    // Set the list of words for the game
+    const words = ['apple', 'banana', 'cherry', 'orange', 'grape', 'mango'];
+
+    // Get the necessary elements from the DOM
+    const wordContainer = document.getElementById('wordContainer');
+    const wordInput = document.getElementById('wordInput');
+    const startButton = document.getElementById('startButton');
+    const resultMessage = document.getElementById('resultMessage');
+
+    // Variable to store the current word
+    let currentWord;
+
+    // Function to start the game
+    function startGame() {
+      // Clear any previous messages
+      resultMessage.textContent = ''; 
+
+      // Get a random word from the list
+      currentWord = getRandomWord();
+
+      // Display the word on the screen
+      wordContainer.textContent = currentWord;
+
+      // Clear the input field and focus on it
+      wordInput.value = '';
+      wordInput.focus();
+
+      // Set a timeout to end the game after 5 seconds
+      setTimeout(endGame, 10000);
+    }
+
+    // Function to end the game
+    function endGame() {
+      // Disable the input and start button
+      wordInput.disabled = true;
+      startButton.disabled = true;
+
+      // Check if the user entered the correct word
+      if (wordInput.value.toLowerCase() === currentWord.toLowerCase()) {
+        resultMessage.textContent = 'Congratulations! You entered the correct word.';
+      } else {
+        resultMessage.textContent = 'Game over! You did not enter the correct word.';
+      }
+    }
+
+    // Function to get a random word from the list
+    function getRandomWord() {
+      const randomIndex = Math.floor(Math.random() * words.length);
+      return words[randomIndex];
+    }
+
+    // Attach event listeners
+    startButton.addEventListener('click', startGame);
+
+    // Optional: Enable the user to press Enter key to submit the word
+    wordInput.addEventListener('keyup', function(event) {
+      if (event.key === 'Enter') {
+        endGame();
+      }
+    });
+})
+
+  </script>
+</body>
+</html>

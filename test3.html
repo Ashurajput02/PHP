@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let h1=document.createElement('h1');
+let text=document.createTextNode("Welcome");
+h1.appendChild(text);
+document.body.appendChild(h1);
+h1.style.cssText+="margin:auto;text-align:center;color:red;background-color:yellow;width:200px;height:50px;margin-top:25px";
+
+let ul=document.createElement("ul");
+ul.className="list";
+ul.id="ash";
+document.body.appendChild(ul);
+let l1=document.createElement("li");
+
+let l2=document.createElement("li");
+
+let l3=document.createElement("li");
+
+let l4=document.createElement("li");
+
+ul.appendChild(l1);
+ul.appendChild(l2);
+ul.appendChild(l3);
+ul.appendChild(l4);
+l1.textContent="home";
+l2.textContent="projects";
+l3.textContent="contactUs";
+l4.textContent="invite";
+l1.className="bar";
+l2.className="bar";
+l3.className="bar";
+l4.className="bar";
+let ap=ul.getElementsByClassName("bar");
+for(let i=0;i<ap.length;i++){
+    console.log(ap[i].textContent);
+    ap[i].style.cssText+="color:orange;display:inline;padding:10px;background-color:grey;margin:auto;text-align:center";
+}
+
+</script>
+</body>
+</html>

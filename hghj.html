@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .btn {        
+      
+        width: 20%;
+        height: 40%;
+        position: relative;
+        left: 40%;
+        top: 10%;
+   }
+
+    button {
+        width: 60px;
+        height: 60px;
+        background-color: pink;
+    }
+</style>
+<body>
+    <h1 style="text-align: center;">WELCOME</h1>
+    <div class="btn" id="b1">
+        <button>1</button>
+        <button id="b2">2</button>
+        <button id="b3">3</button>
+        <button id="b4">4</button>
+        <button id="b5">5</button>
+        <button id="b6">6</button>
+        <button id="b7">7</button>
+        <button id="b8">8</button>
+        <button id="b9">9</button>
+    </div>
+    <div id="myDiv" tabindex="0"></div>
+
+    <script>
+        let isEventAssigned = false;
+
+        window.addEventListener('keydown', function(e) {
+            console.log(e.key && !isEventAssigned);
+            if (e.key === "a") {
+                let buttons = document.querySelectorAll('.btn button');
+                buttons.forEach(function(button) {
+                    button.addEventListener('click', hona);
+                    button.addEventListener('click', function(){
+                        button.style.cssText+="background-color:green";
+                    });
+                    button.addEventListener('mouseout', function(){
+                        button.style.cssText+="background-color:pink";
+                    });
+                });
+
+                isEventAssigned = true;
+            }
+        });
+
+        function hona(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+            
+            let a = parseInt(this.innerText);
+            let result = a * a;
+
+            let resultDiv = document.createElement('div');
+            resultDiv.textContent = 'Result: ' + result;
+            resultDiv.style.cssText = "border: 1px solid red; background-color: yellow; width: 30%;";
+            document.body.appendChild(resultDiv);
+        }
+    </script>
+</body>
+</html>

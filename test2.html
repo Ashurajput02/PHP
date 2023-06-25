@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let ele=document.body;
+let h1=document.createElement("h1");
+let t1=document.createTextNode("languages covered in AP so far");
+h1.appendChild(t1);
+ele.appendChild(h1);
+
+h1.className="main";
+
+let ul=document.createElement("ul");
+let li1=document.createElement("li");
+
+let li2=document.createElement("li");
+
+let li3=document.createElement("li");
+
+let li4=document.createElement("li");
+
+let li5=document.createElement("li");
+
+let t2=document.createTextNode("HTML");
+
+let t3=document.createTextNode("CSS");
+
+let t4=document.createTextNode("JAVASCRIPT");
+
+let t5=document.createTextNode("PHP");
+
+let t6=document.createTextNode("MYSQL");
+ul.appendChild(li1);
+ul.appendChild(li2);
+ul.appendChild(li3);
+ul.appendChild(li4);
+ul.appendChild(li5);
+li1.appendChild(t2);
+h1.insertAdjacentHTML("afterend","<br><br>");
+li2.appendChild(t3);
+li3.appendChild(t4);
+li4.appendChild(t5);
+li5.appendChild(t6);
+ele.appendChild(ul);
+
+let alpha=document.getElementById("list");
+console.log(alpha);
+// let pos=alpha.firstElementChild.nextElementSibling;
+//  console.log(pos.textContent);
+ele.appendChild(li3);
+ele.appendChild(li4);
+ele.appendChild(li5);
+
+    </script>
+</body>
+</html>
